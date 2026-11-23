@@ -1,0 +1,319 @@
+# Flashcard vocabulary for the Arabic tutor (Latin transcription).
+# Conventions: long vowels doubled (aa, ii, uu); ' = hamza / ayn; kh sh dh th gh digraphs;
+# emphatic letters written plain. Fields: arabic | english | gender (m/f) | note | example | translation
+# Verb cards are generated from verbs.py + verb_examples.txt, not listed here.
+
+##noun
+bayt | house / home | m | pl. buyuut | baytii kabiir. | My house is big.
+kitaab | book | m | pl. kutub | hadha kitaab jayyid. | This is a good book.
+maa' | water | m | pl. miyaah | ashrabu al-maa' kulla yawm. | I drink water every day.
+ta'aam | food | m | pl. at'ima | hadha at-ta'aam ladhiidh. | This food is delicious.
+waqt | time | m | pl. awqaat | laysa ladayya waqt al-yawm. | I don't have time today.
+yawm | day | m | pl. ayyaam | hadha yawm jamiil. | This is a beautiful day.
+layl | night | m | | al-layl haadi'. | The night is quiet.
+'amal | work / job | m | pl. a'maal | 'amalii jadiid. | My job is new.
+hubb | love | m | | al-hubb muhimm. | Love is important.
+hayaah | life | f | | al-hayaah jamiila. | Life is beautiful.
+sadiiq | friend (m) | m | pl. asdiqaa' | sadiiqii ismuhu ahmad. | My friend's name is Ahmad.
+sadiiqa | friend (f) | f | pl. sadiiqaat | sadiiqatii mu'allima. | My friend is a teacher.
+usra | family | f | pl. usar | usratii kabiira. | My family is big.
+madiina | city | f | pl. mudun | al-qaahira madiina kabiira. | Cairo is a big city.
+bahr | sea | m | pl. bihaar | adhhabu ilaa al-bahr fii as-sayf. | I go to the sea in summer.
+khubz | bread | m | | uhibbu al-khubz. | I like bread.
+shaari' | street | m | pl. shawaari' | ash-shaari' tawiil. | The street is long.
+musiiqaa | music | f | | astami'u ilaa al-musiiqaa kulla masaa'. | I listen to music every evening.
+shams | sun | f | pl. shumuus | ash-shams jamiila al-yawm. | The sun is beautiful today.
+qamar | moon | m | pl. aqmaar | al-qamar jamiil. | The moon is beautiful.
+ard | earth / land | f | pl. araadin | al-ard kabiira. | The earth is big.
+samaa' | sky | f | pl. samaawaat | as-samaa' zarqaa'. | The sky is blue.
+yad | hand | f | pl. aydii | yadii baarida. | My hand is cold.
+qadam | foot | f | pl. aqdaam | qadamii saghiira. | My foot is small.
+ra's | head | m | pl. ru'uus | 'indii alam fii ra'sii. | I have pain in my head.
+qalb | heart | m | pl. quluub | qalbii sa'iid. | My heart is happy.
+sayyaara | car | f | pl. sayyaaraat | sayyaaratii jadiida. | My car is new.
+qitaar | train | m | pl. qitaaraat | al-qitaar sarii'. | The train is fast.
+madrasa | school | f | pl. madaaris | adhhabu ilaa al-madrasa kulla yawm. | I go to school every day.
+mu'allim | teacher (m) | m | pl. mu'allimuun | al-mu'allim jayyid. | The teacher is good.
+mu'allima | teacher (f) | f | pl. mu'allimaat | hiya mu'allima. | She is a teacher.
+taawila | table | f | pl. taawilaat | al-kitaab 'alaa at-taawila. | The book is on the table.
+kursii | chair | m | pl. karaasii | ajlisu 'alaa al-kursii. | I sit on the chair.
+naafidha | window | f | pl. nawaafidh | aftahu an-naafidha. | I open the window.
+jariida | newspaper | f | pl. jaraa'id | aqra'u al-jariida kulla sabaah. | I read the newspaper every morning.
+haqiiba | bag | f | pl. haqaa'ib | haqiibatii kabiira. | My bag is big.
+miftaah | key | m | pl. mafaatiih | ayna al-miftaah? | Where is the key?
+haatif | phone | m | pl. hawaatif | haatifii jadiid. | My phone is new.
+hadiiqa | garden / park | f | pl. hadaa'iq | ajlisu fii al-hadiiqa. | I sit in the garden.
+matbakh | kitchen | m | pl. mataabikh | al-matbakh naziif. | The kitchen is clean.
+sariir | bed | m | pl. asirra | as-sariir muriih. | The bed is comfortable.
+kalb | dog | m | pl. kilaab | 'indii kalb saghiir. | I have a small dog.
+qitta | cat | f | pl. qitat | al-qitta tanaamu kathiiran. | The cat sleeps a lot.
+tayr | bird | m | pl. tuyuur | at-tayr jamiil. | The bird is beautiful.
+samak | fish | m | | uhibbu as-samak. | I like fish.
+tuffaaha | apple | f | pl. tuffaah | aakulu tuffaaha. | I eat an apple.
+mawza | banana | f | pl. mawz | aakulu mawza kulla sabaah. | I eat a banana every morning.
+burtuqaal | orange (fruit) | m | | al-burtuqaal halw. | The orange is sweet.
+jubn | cheese | m | | uhibbu al-jubn. | I like cheese.
+haliib | milk | m | | ashrabu al-haliib fii as-sabaah. | I drink milk in the morning.
+zubda | butter | f | | uhibbu az-zubda. | I like butter.
+bayda | egg | f | pl. bayd | aakulu bayda fii as-sabaah. | I eat an egg in the morning.
+lahm | meat | m | | uhibbu al-lahm. | I like meat.
+dajaaj | chicken | m | | atbukhu ad-dajaaj. | I cook the chicken.
+khudraawaat | vegetables | f | | aakulu khudraawaat kathiira. | I eat a lot of vegetables.
+aruzz | rice | m | | al-aruzz ladhiidh. | The rice is delicious.
+qahwa | coffee | f | | ashrabu al-qahwa fii as-sabaah. | I drink coffee in the morning.
+shaay | tea | m | | ash-shaay saakhin. | The tea is hot.
+'asiir | juice | m | | uhibbu 'asiir at-tuffaah. | I like apple juice.
+sukkar | sugar | m | | ahtaaju ilaa sukkar. | I need sugar.
+malaabis | clothes | f | | malaabisii jadiida. | My clothes are new.
+qamiis | shirt | m | pl. qumsaan | al-qamiis azraq. | The shirt is blue.
+bantaluun | pants | m | | al-bantaluun aswad. | The pants are black.
+thawb | dress / garment | m | pl. thiyaab | hadha ath-thawb jamiil. | This dress is beautiful.
+hidhaa' | shoe | m | pl. ahdhiya | hidhaa'ii jadiid. | My shoe is new.
+qubba'a | hat | f | pl. qubba'aat | albasu qubba'a fii as-sayf. | I wear a hat in summer.
+mi'taf | coat | m | pl. ma'aatif | al-mi'taf thaqiil. | The coat is heavy.
+saa'a | watch / clock / hour | f | pl. saa'aat | kam as-saa'a? | What time is it?
+qalam | pen | m | pl. aqlaam | al-qalam aswad. | The pen is black.
+daftar | notebook | m | pl. dafaatir | aktubu fii ad-daftar. | I write in the notebook.
+waraqa | paper / sheet | f | pl. awraaq | aktubu 'alaa waraqa. | I write on a sheet of paper.
+mir'aa | mirror | f | pl. maraayaa | anzuru fii al-mir'aa. | I look in the mirror.
+lawha | painting | f | pl. lawhaat | al-lawha jamiila jiddan. | The painting is very beautiful.
+baab | door | m | pl. abwaab | aftahu al-baab. | I open the door.
+ghurfa | room | f | pl. ghuraf | al-ghurfa kabiira. | The room is big.
+mat'am | restaurant | m | pl. mataa'im | hadha al-mat'am jayyid. | This restaurant is good.
+suuq | market | m | pl. aswaaq | adhhabu ilaa as-suuq ghadan. | I go to the market tomorrow.
+mustashfaa | hospital | m | pl. mustashfayaat | al-mustashfaa qariib. | The hospital is near.
+masjid | mosque | m | pl. masaajid | al-masjid qariib min baytii. | The mosque is near my house.
+maktaba | library | f | pl. maktabaat | aqra'u fii al-maktaba. | I read in the library.
+jaami'a | university | f | pl. jaami'aat | adrusu fii al-jaami'a. | I study at the university.
+tabiib | doctor | m | pl. atibbaa' | at-tabiib fii al-mustashfaa. | The doctor is in the hospital.
+taalib | student (m) | m | pl. tullaab | ana taalib. | I am a student.
+ism | name | m | pl. asmaa' | ismii ahmad. | My name is Ahmad.
+ab | father | m | pl. aabaa' | abii fii al-bayt. | My father is at home.
+umm | mother | f | pl. ummahaat | ummii tatbukhu. | My mother cooks.
+akh | brother (bro) | m | pl. ikhwa | akhii kabiir. | My brother is big.
+ukht | sister | f | pl. akhawaat | ukhtii saghiira. | My sister is small.
+ibn | son | m | pl. abnaa' | ibnii saghiir. | My son is small.
+bint | daughter / girl | f | pl. banaat | bintii jamiila. | My daughter is beautiful.
+rajul | man | m | pl. rijaal | ar-rajul tawiil. | The man is tall.
+imra'a | woman | f | pl. nisaa' | al-imra'a hunaa. | The woman is here.
+tifl | child | m | pl. atfaal | at-tifl yal'abu. | The child plays.
+walad | boy | m | pl. awlaad | al-walad fii al-madrasa. | The boy is at school.
+jadda | grandmother | f | | azuuru jaddatii kulla usbuu'. | I visit my grandmother every week.
+jadd | grandfather | m | | jaddii fii al-bayt. | My grandfather is at home.
+balad | country | m | pl. bilaad | baladii jamiil. | My country is beautiful.
+'aalam | world | m | | al-'aalam kabiir. | The world is big.
+sana | year | f | pl. sanawaat | hadhihi as-sana jayyida. | This year is good.
+shahr | month | m | pl. shuhuur | ana hunaa mundhu shahr. | I have been here for a month.
+usbuu' | week | m | pl. asaabii' | fii al-usbuu' sab'at ayyaam. | There are seven days in a week.
+sabaah | morning | m | | aqra'u fii as-sabaah. | I read in the morning.
+masaa' | evening | m | | adhhabu ilaa al-bayt fii al-masaa'. | I go home in the evening.
+tariiq | road / way | m | pl. turuq | at-tariiq tawiil. | The road is long.
+maal | money | m | pl. amwaal | laysa ladayya maal. | I don't have money.
+thaman | price | m | pl. athmaan | hadha ath-thaman ghaalii. | This price is expensive.
+su'aal | question | m | pl. as'ila | 'indii su'aal. | I have a question.
+jawaab | answer | m | pl. ajwiba | hadha huwa al-jawaab. | This is the answer.
+kalima | word | f | pl. kalimaat | hadhihi kalima jadiida. | This is a new word.
+lugha | language | f | pl. lughaat | al-lugha al-'arabiyya jamiila. | The Arabic language is beautiful.
+'arabiyya | Arabic (language) | f | | atakallamu al-'arabiyya. | I speak Arabic.
+dars | lesson | m | pl. duruus | ad-dars sahl. | The lesson is easy.
+imtihaan | exam | m | pl. imtihaanaat | al-imtihaan ghadan. | The exam is tomorrow.
+risaala | letter / message | f | pl. rasaa'il | aktubu risaala. | I write a letter.
+'ashaa' | dinner | m | | al-'ashaa' jaahiz. | Dinner is ready.
+ghadaa' | lunch | m | | al-ghadaa' ladhiidh. | Lunch is delicious.
+futuur | breakfast | m | | aakulu al-futuur fii as-saa'a as-saabi'a. | I eat breakfast at seven o'clock.
+mushkila | problem | f | pl. mashaakil | laa mushkila. | No problem.
+'ayn | eye | f | pl. 'uyuun | 'aynii zarqaa'. | My eye is blue.
+najm | star | m | pl. nujuum | araa an-nujuum fii al-layl. | I see the stars at night.
+matar | rain | m | pl. amtaar | al-matar kathiir al-yawm. | There is a lot of rain today.
+jaww | weather / atmosphere | m | | al-jaww jamiil al-yawm. | The weather is nice today.
+nahr | river | m | pl. anhaar | an-nahr tawiil. | The river is long.
+jabal | mountain | m | pl. jibaal | al-jabal 'aalii. | The mountain is high.
+shaati' | beach | m | pl. shawaati' | adhhabu ilaa ash-shaati'. | I go to the beach.
+shajara | tree | f | pl. ashjaar | ash-shajara kabiira. | The tree is big.
+zahra | flower | f | pl. zuhuur | az-zahra hamraa'. | The flower is red.
+lawn | color | m | pl. alwaan | ma huwa lawnuka al-mufaddal? | What is your favorite color?
+raqm | number | m | pl. arqaam | ma huwa raqm haatifika? | What is your phone number?
+sawt | sound / voice | m | pl. aswaat | asma'u sawt al-baab. | I hear the sound of the door.
+tamriin | exercise | m | pl. tamaariin | hadha at-tamriin sahl. | This exercise is easy.
+tilfaaz | television | m | | ushaahidu at-tilfaaz. | I watch television.
+baas | bus | m | pl. baasaat | antaziru al-baas. | I wait for the bus.
+mustaqbal | future | m | | ufakkiru fii al-mustaqbal. | I think about the future.
+musaa'ada | help | f | | ahtaaju ilaa musaa'ada. | I need help.
+funduq | hotel | m | pl. fanaadiq | al-funduq qariib. | The hotel is near.
+dukkaan | shop | m | pl. dakakiin | adhhabu ilaa ad-dukkaan. | I go to the shop.
+maktab | office / desk | m | pl. makaatib | a'malu fii maktab kabiir. | I work in a big office.
+haasuub | computer | m | pl. hawaasiib | haasuubii jadiid. | My computer is new.
+suura | picture / photo | f | pl. suwar | hadhihi suura jamiila. | This is a beautiful picture.
+ughniya | song | f | pl. aghaanii | hadhihi ughniya jamiila. | This is a beautiful song.
+film | film / movie | m | pl. aflaam | ushaahidu film jadiid. | I watch a new film.
+
+##adjective
+jamiil | beautiful | | f. jamiila | hadhihi madiina jamiila. | This is a beautiful city.
+kabiir | big / old (age) | | f. kabiira | al-masjid kabiir. | The mosque is big.
+saghiir | small | | f. saghiira | al-ghurfa saghiira. | The room is small.
+jayyid | good | | f. jayyida | at-tabiib jayyid. | The doctor is good.
+jadiid | new | | f. jadiida | hadha 'amal jadiid. | This is a new job.
+qadiim | old (things) | | f. qadiima | hadha al-bayt qadiim. | This house is old.
+haarr | hot | | f. haarra | al-jaww haarr al-yawm. | The weather is hot today.
+baarid | cold | | f. baarida | al-maa' baarid. | The water is cold.
+sa'iid | happy | | f. sa'iida | ana sa'iid al-yawm. | I am happy today.
+haziin | sad | | f. haziina | ana haziin. | I am sad.
+mumti' | enjoyable / interesting | | f. mumti'a | hadha al-kitaab mumti'. | This book is interesting.
+sa'b | difficult | | f. sa'ba | al-'arabiyya sa'ba laakin jamiila. | Arabic is difficult but beautiful.
+sahl | easy | | f. sahla | hadha as-su'aal sahl. | This question is easy.
+tawiil | long / tall | | f. tawiila | ar-rihla tawiila. | The trip is long.
+qasiir | short | | f. qasiira | ash-shaari' qasiir. | The street is short.
+sarii' | fast | | f. sarii'a | as-sayyaara sarii'a. | The car is fast.
+batii' | slow | | f. batii'a | al-qitaar batii' al-yawm. | The train is slow today.
+shaabb | young | | f. shaabba | anta shaabb. | You are young.
+ghanii | rich | | f. ghaniyya | huwa rajul ghanii. | He is a rich man.
+faqiir | poor | | f. faqiira | al-balad faqiir. | The country is poor.
+qawii | strong | | f. qawiyya | anta qawii jiddan. | You are very strong.
+da'iif | weak | | f. da'iifa | ana da'iif al-yawm. | I am weak today.
+dhakii | intelligent | | f. dhakiyya | anti dhakiyya. | You are intelligent.
+latiif | nice / kind | | f. latiifa | sadiiqii latiif. | My friend is nice.
+naziif | clean | | f. naziifa | al-ghurfa naziifa. | The room is clean.
+wasikh | dirty | | f. wasikha | al-qamiis wasikh. | The shirt is dirty.
+jaaff | dry | | f. jaaffa | al-khubz jaaff. | The bread is dry.
+naa'im | soft | | f. naa'ima | as-sariir naa'im. | The bed is soft.
+khafiif | light (weight) | | f. khafiifa | al-haqiiba khafiifa. | The bag is light.
+thaqiil | heavy | | f. thaqiila | al-kitaab thaqiil. | The book is heavy.
+mudii' | bright | | f. mudii'a | al-ghurfa mudii'a. | The room is bright.
+muzlim | dark | | f. muzlima | al-layl muzlim. | The night is dark.
+abyad | white | | f. baydaa' | ath-thalj abyad. | Snow is white.
+aswad | black | | f. sawdaa' | al-qitta sawdaa'. | The cat is black.
+ahmar | red | | f. hamraa' | at-tuffaaha hamraa'. | The apple is red.
+azraq | blue | | f. zarqaa' | as-samaa' zarqaa'. | The sky is blue.
+asfar | yellow | | f. safraa' | ash-shams safraa'. | The sun is yellow.
+akhdar | green | | f. khadraa' | ash-shajara khadraa'. | The tree is green.
+bunnii | brown | | f. bunniyya | al-hidhaa' bunnii. | The shoe is brown.
+ladhiidh | delicious | | f. ladhiidha | hadha as-samak ladhiidh. | This fish is delicious.
+murr | bitter | | f. murra | al-qahwa murra. | The coffee is bitter.
+halw | sweet / pretty | | f. hulwa | ash-shaay halw. | The tea is sweet.
+maalih | salty | | f. maaliha | ash-shurba maaliha. | The soup is salty.
+muhimm | important | | f. muhimma | hadha ad-dars muhimm. | This lesson is important.
+mumkin | possible | | f. mumkina | hal hadha mumkin? | Is this possible?
+jaahiz | ready | | f. jaahiza | ana jaahiz. | I am ready.
+mashghuul | busy | | f. mashghuula | ana mashghuul al-yawm. | I am busy today.
+ta'baan | tired | | f. ta'baana | ana ta'baan jiddan. | I am very tired.
+jaw'aan | hungry | | f. jaw'aana | ana jaw'aan. | I am hungry.
+'atshaan | thirsty | | f. 'atshaana | ana 'atshaan. | I am thirsty.
+mariid | sick | | f. mariida | ana mariid. | I am sick.
+qariib | near | | f. qariiba | al-madrasa qariiba. | The school is near.
+ba'iid | far | | f. ba'iida | baytii ba'iid. | My house is far.
+ghaalii | expensive | | f. ghaaliya | hadha ghaalii jiddan. | This is very expensive.
+rakhiis | cheap | | f. rakhiisa | hadha rakhiis. | This is cheap.
+mufiid | useful | | f. mufiida | hadha mufiid. | This is useful.
+kathiir | many / a lot | | f. kathiira | 'indii kutub kathiira. | I have many books.
+qaliil | few / little | | f. qaliila | 'indii waqt qaliil. | I have little time.
+'aalii | high | | f. 'aaliya | al-binaaya 'aaliya. | The building is high.
+
+##adverb
+jiddan | very | | | hadha jamiil jiddan. | This is very beautiful.
+kathiiran | a lot | | | adrusu kathiiran. | I study a lot.
+qaliilan | a little | | | atakallamu qaliilan. | I speak a little.
+ahyaanan | sometimes | | | ahyaanan adhhabu ilaa al-bahr. | Sometimes I go to the sea.
+daa'iman | always | | | ana sa'iid daa'iman. | I am always happy.
+abadan | never / ever | | | laa aakulu al-lahm abadan. | I never eat meat.
+ghaaliban | often / usually | | | adhhabu ilaa al-hadiiqa ghaaliban. | I often go to the park.
+naadiran | rarely | | | naadiran aghdabu. | I rarely get angry.
+al-yawm | today | | | al-yawm yawm jamiil. | Today is a beautiful day.
+ams | yesterday | | | ams akaltu al-aruzz. | Yesterday I ate rice.
+ghadan | tomorrow | | | ghadan adhhabu ilaa as-suuq. | Tomorrow I go to the market.
+al-aan | now | | | al-aan ana hunaa. | Now I am here.
+hunaa | here | | | ana hunaa. | I am here.
+hunaak | there | | | baytii hunaak. | My house is there.
+sarii'an | quickly | | | amshii sarii'an. | I walk quickly.
+bibutu' | slowly | | | amshii bibutu'. | I walk slowly.
+bisuhuula | easily | | | afhamu bisuhuula. | I understand easily.
+ma'an | together | | | nadhhabu ma'an. | We go together.
+faqat | only | | | 'indii kitaab waahid faqat. | I have only one book.
+aydan | also | | | ana aydan sa'iid. | I am also happy.
+tabii'an | of course | | | tabii'an, ajii'u ghadan. | Of course, I will come tomorrow.
+mubakkiran | early | | | aquumu mubakkiran. | I get up early.
+muta'akhkhiran | late | | | wasaltu muta'akhkhiran. | I arrived late.
+qariiban | soon | | | sa-adhhabu qariiban. | I will go soon.
+'aadatan | usually | | | 'aadatan anaamu mubakkiran. | I usually sleep early.
+tamaaman | exactly / completely | | | hadha sahiih tamaaman. | This is completely correct.
+akthar | more | | | uriidu akthar. | I want more.
+
+##other
+ana | I | | | ana taalib. | I am a student.
+anta | you (m) | | | anta mu'allim. | You are a teacher.
+anti | you (f) | | | anti mu'allima. | You are a teacher.
+huwa | he / it (m) | | | huwa hunaa. | He is here.
+hiya | she / it (f) | | | hiya hunaa. | She is here.
+nahnu | we | | | nahnu asdiqaa'. | We are friends.
+antum | you all (m) | | | antum hunaa. | You all are here.
+antunna | you all (f) | | | antunna jamiilaat. | You all are beautiful.
+hum | they (m) | | | hum fii al-bayt. | They are at home.
+hunna | they (f) | | | hunna fii al-madrasa. | They are at school.
+ma'a | with | | | adhhabu ma'a sadiiqii. | I go with my friend.
+an | that (to) | | | uriidu an atakallama al-'arabiyya. | I want to speak Arabic.
+fii | in / at | | | ana fii al-bayt. | I am in the house.
+min | from | | | ana min kanadaa. | I am from Canada.
+ilaa | to / toward | | | adhhabu ilaa al-jaami'a. | I go to the university.
+'alaa | on / upon | | | al-qalam 'alaa at-taawila. | The pen is on the table.
+wa | and | | | kitaab wa qalam. | A book and a pen.
+aw | or | | | shaay aw qahwa? | Tea or coffee?
+laakin | but | | | laakin ana ta'baan. | But I am tired.
+li'anna | because | | | li'anna al-jaww haarr. | Because the weather is hot.
+idhaa | if | | | idhaa mumkin, ta'aal. | If possible, come.
+laa | no / not | | | laa, shukran. | No, thank you.
+na'am | yes | | | na'am, ana jaahiz. | Yes, I am ready.
+laysa | is not | | | laysa hunaa. | He is not here.
+maa | what | | | maa hadha? | What is this?
+man | who | | | man anta? | Who are you?
+ayna | where | | | ayna al-bayt? | Where is the house?
+mataa | when | | | mataa tadhhabu? | When do you go?
+kayfa | how | | | kayfa haaluka? | How are you?
+limaadhaa | why | | | limaadhaa anta hunaa? | Why are you here?
+kam | how much / how many | | | kam kitaab 'indaka? | How many books do you have?
+hadha | this (m) | | | hadha kitaab. | This is a book.
+hadhihi | this (f) | | | hadhihi sayyaara. | This is a car.
+dhaalika | that (m) | | | dhaalika bayt kabiir. | That is a big house.
+tilka | that (f) | | | tilka madiina jamiila. | That is a beautiful city.
+kull | every / all | | | adhhabu kull yawm. | I go every day.
+ba'da | after | | | ba'da al-'amal. | After work.
+qabla | before | | | qabla al-ghadaa'. | Before lunch.
+bidoon | without | | | shaay bidoon haliib. | Tea without milk.
+'indii | I have (lit. at me) | | | 'indii sayyaara. | I have a car.
+ladayya | I have (formal) | | | ladayya waqt. | I have time.
+marhaban | hello | | | marhaban! kayfa haaluka? | Hello! How are you?
+as-salaamu 'alaykum | peace be upon you (greeting) | | reply: wa 'alaykum as-salaam | as-salaamu 'alaykum, ya sadiiqii. | Peace be upon you, my friend.
+ahlan wa sahlan | welcome | | | ahlan wa sahlan fii baytii. | Welcome to my house.
+sabaah al-khayr | good morning | | reply: sabaah an-nuur | sabaah al-khayr, kayfa haaluka? | Good morning, how are you?
+masaa' al-khayr | good evening | | reply: masaa' an-nuur | masaa' al-khayr, ahlan bika. | Good evening, welcome.
+tusbih 'alaa khayr | good night | | | tusbih 'alaa khayr, ya sadiiqii. | Good night, my friend.
+shukran | thank you | | | shukran jaziilan. | Thank you very much.
+'afwan | you're welcome / excuse me | | | 'afwan, ayna al-mat'am? | Excuse me, where is the restaurant?
+min fadlika | please (to a man) | | | maa' min fadlika. | Water, please.
+aasif | sorry (m) | | | ana aasif. | I am sorry.
+ma'a as-salaama | goodbye | | | ma'a as-salaama! ilaa al-liqaa'. | Goodbye! See you.
+kayfa haaluka | how are you? (to a man) | | | kayfa haaluka al-yawm? | How are you today?
+bikhayr | fine / well | | | ana bikhayr, shukran. | I am fine, thank you.
+al-hamdu lillaah | thank God | | | kayfa haaluka? al-hamdu lillaah. | How are you? Thank God.
+in shaa'a llaah | God willing | | | sa-adhhabu ghadan in shaa'a llaah. | I will go tomorrow, God willing.
+ma ismuka | what is your name? (to a man) | | | ma ismuka? ismii ahmad. | What is your name? My name is Ahmad.
+laa afham | I don't understand | | | laa afham hadhihi al-kalima. | I don't understand this word.
+hal tatakallamu al-inkliiziyya | do you speak English? | | | na'am, atakallamu qaliilan. | Yes, I speak a little.
+waahid | one | | | 'indii kitaab waahid. | I have one book.
+ithnaan | two | | | ithnaan min asdiqaa'ii hunaa. | Two of my friends are here.
+thalaatha | three | | | 'indii thalaatha kutub. | I have three books.
+arba'a | four | | | 'indii arba'a kutub. | I have four books.
+khamsa | five | | | 'indii khamsa asdiqaa'. | I have five friends.
+sitta | six | | | sitta kutub 'alaa at-taawila. | Six books on the table.
+sab'a | seven | | | 'indii sab'a aqlaam. | I have seven pens.
+thamaaniya | eight | | | 'indii thamaaniya aqlaam. | I have eight pens.
+tis'a | nine | | | 'indii tis'a aqlaam. | I have nine pens.
+'ashara | ten | | | 'indii 'ashara aqlaam. | I have ten pens.
+'ishruun | twenty | | | 'umrii 'ishruun sana. | I am twenty years old.
+mi'a | one hundred | | | mi'a kitaab. | One hundred books.
+alf | one thousand | | | alf shukran. | A thousand thanks.
+al-ithnayn | Monday | | | al-yawm yawm al-ithnayn. | Today is Monday.
+ath-thulaathaa' | Tuesday | | | ghadan yawm ath-thulaathaa'. | Tomorrow is Tuesday.
+al-arbi'aa' | Wednesday | | | adhhabu yawm al-arbi'aa'. | I go on Wednesday.
+al-khamiis | Thursday | | | al-imtihaan yawm al-khamiis. | The exam is on Thursday.
+al-jumu'a | Friday | | | al-jumu'a yawm jamiil. | Friday is a beautiful day.
+as-sabt | Saturday | | | as-sabt yawm al-'utla. | Saturday is a day off.
+al-ahad | Sunday | | | al-ahad yawm al-usra. | Sunday is family day.

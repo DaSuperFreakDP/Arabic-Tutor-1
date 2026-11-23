@@ -1,0 +1,62 @@
+# id | Arabic example (uses the "ana" form unless noted) | English
+kataba | aktubu risaala kulla yawm. | I write a letter every day.
+jaala | aj'alu al-kitaab 'alaa at-taawila. | I put the book on the table.
+shariba | ashrabu al-qahwa fii as-sabaah. | I drink coffee in the morning.
+faala | madhaa taf'alu al-aan? | What are you doing now?
+darasa | adrusu al-'arabiyya fii al-jaami'a. | I study Arabic at the university.
+fataha | aftahu an-naafidha. | I open the window.
+dhahaba | adhhabu ilaa as-suuq ghadan. | I go to the market tomorrow.
+arafa | a'rifu hadha ar-rajul. | I know this man.
+jalasa | ajlisu 'alaa al-kursii. | I sit on the chair.
+samia | asma'u sawt al-baab. | I hear the sound of the door.
+talaba | atlubu al-ghadaa'. | I order lunch.
+saala | as'alu al-mu'allim 'an ad-dars. | I ask the teacher about the lesson.
+amila | a'malu fii mustashfaa. | I work in a hospital.
+rajaa | arji'u ilaa al-bayt ba'da al-'amal. | I return home after work.
+dakhala | adkhulu al-ghurfa. | I enter the room.
+kharaja | akhruju ma'a asdiqaa'ii. | I go out with my friends.
+nazala | anzilu min al-qitaar. | I get off the train.
+sakana | askunu fii al-qaahira. | I live in Cairo.
+alima | a'lamu ayna al-mat'am. | I know where the restaurant is.
+fahima | afhamu ad-dars. | I understand the lesson.
+qaraa | aqra'u al-jariida kulla sabaah. | I read the newspaper every morning.
+badaa | abda'u al-'amal ghadan. | I start work tomorrow.
+nazara | anzuru fii al-mir'aa. | I look in the mirror.
+tabakha | atbukhu ad-dajaaj lil-'ashaa'. | I cook chicken for dinner.
+akala | aakulu al-aruzz fii al-ghadaa'. | I eat rice for lunch.
+akhadha | aakhudhu al-qahwa bidoon sukkar. | I take my coffee without sugar.
+qaala | aquulu na'am. | I say yes.
+kaana | akuunu hunaa ghadan. | I will be here tomorrow.
+naama | anaamu fii as-sariir. | I sleep in the bed.
+zaara | azuuru jaddatii kulla usbuu'. | I visit my grandmother every week.
+baaa | abii'u sayyaaratii. | I sell my car.
+jaaa | ajii'u ilaa baytika masaa'an. | I come to your house this evening.
+qaama | aquumu mubakkiran. | I get up early.
+aasha | a'iishu fii kanadaa. | I live in Canada.
+raa | araa al-qamar min an-naafidha. | I see the moon from the window.
+mashaa | amshii fii al-hadiiqa kulla sabaah. | I walk in the park every morning.
+nasiya | ansaa ismahu. | I forget his name.
+baqiya | abqaa fii al-bayt. | I stay at home.
+wajada | ajidu al-miftaah daa'iman. | I always find the key.
+wasala | asilu ilaa al-bayt fii as-saa'a as-saadisa. | I arrive home at six o'clock.
+wadaa | ada'u al-kitaab hunaa. | I put the book here.
+allama | u'allimu al-'arabiyya. | I teach Arabic.
+fakkara | ufakkiru fii al-mustaqbal. | I think about the future.
+saafara | usaafiru kathiiran. | I travel a lot.
+saaada | usaa'idu ummii. | I help my mother.
+shaahada | ushaahidu at-tilfaaz. | I watch television.
+qaabala | uqaabilu sadiiqii ghadan. | I meet my friend tomorrow.
+arsala | ursilu risaala. | I send a message.
+aghlaqa | ughliqu al-baab. | I close the door.
+ahabba | uhibbu al-musiiqaa. | I love music.
+araada | uriidu an atakallama al-'arabiyya. | I want to speak Arabic.
+ataa | u'tii ibnii kitaaban. | I give my son a book.
+takallama | atakallamu al-'arabiyya qaliilan. | I speak Arabic a little.
+taallama | ata'allamu bisur'a. | I learn quickly.
+tadhakkara | atadhakkaru kull shay'. | I remember everything.
+intazara | antaziru al-baas. | I wait for the bus.
+istamaa | astami'u ilaa al-musiiqaa. | I listen to music.
+ihtaaja | ahtaaju ilaa musaa'ada. | I need help.
+intahaa | antahii min al-'amal fii as-saa'a al-khaamisa. | I finish work at five o'clock.
+istakhdama | astakhdimu al-haatif. | I use the phone.
+istataa | astatii'u an usaa'idaka ghadan. | I can help you tomorrow.
