@@ -13,6 +13,11 @@ const KEYS = {
   LAST_STREAK_SHOWN: 'last_streak_shown',
   ENABLED_VERBS: 'enabled_verbs',
   CONJUGATION_MODE: 'conjugation_mode',
+  BUILDER_SOLVED: 'builder_solved',
+  BUILDER_FIRST_TRY: 'builder_first_try',
+  BUILDER_TOTAL: 'builder_total',
+  BUILDER_STREAK: 'builder_streak',
+  BUILDER_BEST: 'builder_best',
 };
 
 export async function getMasteredCards(): Promise<Set<string>> {
@@ -290,6 +295,59 @@ export async function resetAllProgress(): Promise<void> {
   try {
     await Promise.all(Object.values(KEYS).map(k => AsyncStorage.removeItem(k)));
   } catch {}
+}
+
+// ---- Sentence builder (Build tab) ------------------------------------------------------------------
+export interface BuilderStats {
+  solved: number;     // sentences completed correctly (any number of tries)
+  firstTry: number;   // of those, solved first time without a hint
+  total: number;      // sentences finished (solved or revealed)
+  streak: number;     // consecutive first-try solves
+  best: number;
+}
+
+const EMPTY_BUILDER: BuilderStats = { solved: 0, firstTry: 0, total: 0, streak: 0, best: 0 };
+
+export async function getBuilderStats(): Promise<BuilderStats> {
+  try {
+    const [s, f, t, st, b] = await Promise.all([
+      AsyncStorage.getItem(KEYS.BUILDER_SOLVED),
+      AsyncStorage.getItem(KEYS.BUILDER_FIRST_TRY),
+      AsyncStorage.getItem(KEYS.BUILDER_TOTAL),
+      AsyncStorage.getItem(KEYS.BUILDER_STREAK),
+      AsyncStorage.getItem(KEYS.BUILDER_BEST),
+    ]);
+    const n = (v: string | null) => (v ? parseInt(v, 10) || 0 : 0);
+    return { solved: n(s), firstTry: n(f), total: n(t), streak: n(st), best: n(b) };
+  } catch {
+    return { ...EMPTY_BUILDER };
+  }
+}
+
+/** Call once per finished sentence. `solved` = built correctly (false = the answer was revealed). */
+export async function recordBuilderResult(solved: boolean, firstTry: boolean): Promise<BuilderStats> {
+  try {
+    const cur = await getBuilderStats();
+    const next: BuilderStats = {
+      solved: cur.solved + (solved ? 1 : 0),
+      firstTry: cur.firstTry + (solved && firstTry ? 1 : 0),
+      total: cur.total + 1,
+      streak: solved && firstTry ? cur.streak + 1 : 0,
+      best: 0,
+    };
+    next.best = Math.max(cur.best, next.streak);
+    await Promise.all([
+      AsyncStorage.setItem(KEYS.BUILDER_SOLVED, String(next.solved)),
+      AsyncStorage.setItem(KEYS.BUILDER_FIRST_TRY, String(next.firstTry)),
+      AsyncStorage.setItem(KEYS.BUILDER_TOTAL, String(next.total)),
+      AsyncStorage.setItem(KEYS.BUILDER_STREAK, String(next.streak)),
+      AsyncStorage.setItem(KEYS.BUILDER_BEST, String(next.best)),
+    ]);
+    await recordStudyDayInternal();
+    return next;
+  } catch {
+    return { ...EMPTY_BUILDER };
+  }
 }
 
 export async function getConjugationMode(): Promise<'arabic' | 'english'> {

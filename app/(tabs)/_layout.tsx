@@ -19,6 +19,10 @@ function NativeTabLayout() {
         <Icon sf={{ default: "pencil.and.outline", selected: "pencil.and.outline" }} />
         <Label>Conjugate</Label>
       </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="build">
+        <Icon sf={{ default: "puzzlepiece", selected: "puzzlepiece.fill" }} />
+        <Label>Build</Label>
+      </NativeTabs.Trigger>
       <NativeTabs.Trigger name="tenses">
         <Icon sf={{ default: "text.book.closed", selected: "text.book.closed.fill" }} />
         <Label>Tenses</Label>
@@ -81,6 +85,18 @@ function ClassicTabLayout() {
               <SymbolView name="pencil.and.outline" tintColor={color} size={size} />
             ) : (
               <Ionicons name="pencil-outline" size={size} color={color} />
+            ),
+        }}
+      />
+      <Tabs.Screen
+        name="build"
+        options={{
+          title: "Build",
+          tabBarIcon: ({ color, size }) =>
+            isIOS ? (
+              <SymbolView name="puzzlepiece" tintColor={color} size={size} />
+            ) : (
+              <Ionicons name="extension-puzzle-outline" size={size} color={color} />
             ),
         }}
       />
