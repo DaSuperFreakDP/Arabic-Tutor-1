@@ -44,6 +44,7 @@ import {
   setConjugationMode,
 } from "@/lib/progress-storage";
 import { answersMatch } from "@/lib/utils";
+import { speakArabic, speakAuto, stopSpeaking, useSpeechMuted } from "@/lib/speech";
 import StreakBanner from "@/components/StreakBanner";
 
 const TENSE_ORDER: TenseId[] = ['present', 'past', 'future'];
@@ -56,6 +57,11 @@ interface Question {
   tense: TenseId;
   pronoun: Pronoun;
   answer: string;
+}
+
+/** Vocalised Arabic script of the correct answer (never shown; it is what the Arabic voice speaks). */
+function answerScript(q: Question): string {
+  return q.verb.script[q.tense][PRONOUN_KEYS[q.pronoun]];
 }
 
 interface VerbFilters {
@@ -445,6 +451,7 @@ export default function ConjugationScreen() {
   const shake = useSharedValue(0);
   const bounce = useSharedValue(1);
   const inputRef = useRef<TextInput>(null);
+  const [muted, toggleMuted] = useSpeechMuted();
 
   useEffect(() => { getConjugationStats().then(setStats); }, []);
   
@@ -512,6 +519,13 @@ export default function ConjugationScreen() {
   const isAnswered = state !== 'idle';
   const isLastQuestion = queueIdx === queue.length - 1;
 
+  // Before answering: say the verb itself (dictionary form, e.g. kataba). After: say the correct form.
+  const playCurrent = () => {
+    if (!currentQ) return;
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    speakArabic(isAnswered ? answerScript(currentQ) : currentQ.verb.script.past.huwa);
+  };
+
   const checkAnswer = async () => {
     if (!input.trim() || !currentQ) return;
     Keyboard.dismiss();
@@ -544,6 +558,7 @@ export default function ConjugationScreen() {
         withTiming(0, { duration: 55 })
       );
     }
+    speakAuto(answerScript(currentQ)); // hear the correct form in Arabic (right or wrong)
     const newStats = await recordConjugationAnswer(correct);
     setStats(newStats);
   };
@@ -553,6 +568,7 @@ export default function ConjugationScreen() {
       await recordSessionResult(sessionScore, queue.length);
       setPhase('results');
     } else {
+      stopSpeaking();
       setQueueIdx(i => i + 1);
       setInput('');
       setState('idle');
@@ -612,6 +628,26 @@ export default function ConjugationScreen() {
                   </Text>
                 </View>
               )}
+            </View>
+            <View style={styles.audioBtns}>
+              <TouchableOpacity
+                style={[styles.audioBtn, { backgroundColor: theme.backgroundSecondary }]}
+                onPress={playCurrent}
+                accessibilityLabel={isAnswered ? "Hear the correct form in Arabic" : "Hear the verb in Arabic"}
+              >
+                <Ionicons name="volume-high-outline" size={18} color={theme.tint} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.audioBtn, { backgroundColor: muted ? Colors.palette.gold + "22" : theme.backgroundSecondary }]}
+                onPress={() => { toggleMuted(); Haptics.selectionAsync(); }}
+                accessibilityLabel={muted ? "Turn automatic pronunciation on" : "Mute automatic pronunciation"}
+              >
+                <Ionicons
+                  name={muted ? "volume-mute-outline" : "volume-medium-outline"}
+                  size={18}
+                  color={muted ? Colors.palette.gold : theme.textSecondary}
+                />
+              </TouchableOpacity>
             </View>
           </View>
           {mode === 'arabic' ? (
@@ -683,7 +719,7 @@ export default function ConjugationScreen() {
 
         {!isAnswered ? (
           <View style={styles.btnRow}>
-            <TouchableOpacity style={[styles.revealBtn, { backgroundColor: theme.backgroundSecondary, borderColor: theme.border }]} onPress={() => { setState('revealed'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium); }}>
+            <TouchableOpacity style={[styles.revealBtn, { backgroundColor: theme.backgroundSecondary, borderColor: theme.border }]} onPress={() => { setState('revealed'); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium); speakAuto(answerScript(currentQ)); }}>
               <Ionicons name="eye-outline" size={18} color={theme.textSecondary} />
             </TouchableOpacity>
             <TouchableOpacity style={[styles.checkBtn, { backgroundColor: Colors.palette.wine, opacity: input.trim() ? 1 : 0.5 }]} onPress={checkAnswer} disabled={!input.trim()}>
@@ -704,6 +740,8 @@ export default function ConjugationScreen() {
 
 const styles = StyleSheet.create({
   screen: { flex: 1 },
+  audioBtns: { flexDirection: "row", gap: 8 },
+  audioBtn: { width: 38, height: 38, borderRadius: 12, alignItems: "center", justifyContent: "center" },
   setupContent: { paddingHorizontal: 20, gap: 14 },
   content: { paddingHorizontal: 20, gap: 14 },
   resultsContent: { paddingHorizontal: 20, gap: 14 },

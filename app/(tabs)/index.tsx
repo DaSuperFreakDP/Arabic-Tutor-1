@@ -23,7 +23,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useFocusEffect } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
-import * as Speech from "expo-speech";
+import { speakArabic, speakAuto, useSpeechMuted } from "@/lib/speech";
 import Colors from "@/constants/colors";
 import { FLASHCARDS, WordType, Flashcard } from "@/lib/arabic-data";
 import {
@@ -78,16 +78,22 @@ function SwipeableFlipCard({
 
   const dragX = useRef(new RNAnimated.Value(0)).current;
 
+  const [muted, toggleMuted] = useSpeechMuted();
+
   useEffect(() => {
     flipAnim.value = 0;
     isFlippedRef.current = false;
     setShowBack(false);
+    // Arabic-first deck: the Arabic word is already visible, so say it right away.
+    // (English-first deck: it is spoken when the card is flipped, see flip().)
+    if (!isEnglishFirst) speakAuto(card.script);
   }, [card.id]);
 
   const flip = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     if (!isFlippedRef.current) {
       isFlippedRef.current = true;
+      if (isEnglishFirst) speakAuto(card.script);
       flipAnim.value = withTiming(180, { duration: 380 }, () => {
         runOnJS(setShowBack)(true);
       });
@@ -100,8 +106,8 @@ function SwipeableFlipCard({
   };
 
   const speak = () => {
-    // Phone voices read Latin transcription of Arabic poorly, so audio plays the English meaning only.
-    Speech.speak(card.english.replace(/\//g, ' or '), { language: "en-US", rate: 0.85 });
+    // Always the ARABIC word (hidden vocalised script read by an Arabic voice), whichever side is showing.
+    speakArabic(card.script);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
 
@@ -215,9 +221,30 @@ function SwipeableFlipCard({
       </RNAnimated.View>
 
       <View style={styles.belowCard}>
-        <TouchableOpacity style={[styles.speakBtn, { backgroundColor: theme.backgroundSecondary }]} onPress={speak}>
-          <Ionicons name="volume-high-outline" size={18} color={theme.tint} />
-        </TouchableOpacity>
+        <View style={styles.speakRow}>
+          <TouchableOpacity
+            style={[styles.speakBtn, { backgroundColor: theme.backgroundSecondary }]}
+            onPress={speak}
+            accessibilityLabel="Hear the Arabic pronunciation"
+          >
+            <Ionicons name="volume-high-outline" size={18} color={theme.tint} />
+            <Text style={[styles.speakLabel, { color: theme.tint }]}>Listen</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.speakBtn, { backgroundColor: muted ? Colors.palette.gold + "22" : theme.backgroundSecondary }]}
+            onPress={() => { toggleMuted(); Haptics.selectionAsync(); }}
+            accessibilityLabel={muted ? "Turn automatic pronunciation on" : "Mute automatic pronunciation"}
+          >
+            <Ionicons
+              name={muted ? "volume-mute-outline" : "volume-medium-outline"}
+              size={18}
+              color={muted ? Colors.palette.gold : theme.textSecondary}
+            />
+            <Text style={[styles.speakLabel, { color: muted ? Colors.palette.gold : theme.textSecondary }]}>
+              {muted ? "Auto-play off" : "Auto-play on"}
+            </Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.actionRow}>
           <TouchableOpacity
             style={[styles.actionBtn, { backgroundColor: needsPractice ? Colors.palette.gold + "22" : theme.backgroundSecondary, borderColor: needsPractice ? Colors.palette.gold : theme.border }]}
@@ -971,7 +998,9 @@ const styles = StyleSheet.create({
   noteText: { fontSize: 12, fontFamily: "Inter_500Medium", color: "rgba(255,255,255,0.8)", textAlign: "center", marginTop: 6 },
   exampleEnglish: { fontSize: 11, fontFamily: "Inter_400Regular", color: "rgba(255,255,255,0.65)", textAlign: "center", marginTop: 3 },
   belowCard: { width: "100%", alignItems: "center" },
-  speakBtn: { marginTop: 10, padding: 10, borderRadius: 12 },
+  speakRow: { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 10, marginTop: 10 },
+  speakBtn: { flexDirection: "row", alignItems: "center", gap: 6, paddingVertical: 10, paddingHorizontal: 14, borderRadius: 12 },
+  speakLabel: { fontSize: 13, fontFamily: "Inter_500Medium" },
   actionRow: { flexDirection: "row", gap: 10, marginTop: 8, width: "100%" },
   actionBtn: { flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 6, paddingVertical: 11, borderRadius: 13, borderWidth: 1 },
   actionLabel: { fontSize: 13, fontFamily: "Inter_600SemiBold" },

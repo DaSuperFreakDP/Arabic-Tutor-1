@@ -203,8 +203,10 @@ VERBS = [
       pres_regular('rsil', U_PREFIX), past_regular('arsal')),
     V('aghlaqa', 'gh-l-q', 'to close', ('close', 'closes', 'closed'), 'derived', 'IV',
       pres_regular('ghliq', U_PREFIX), past_regular('aghlaq')),
+    # doubled root: the feminine plurals un-double (tuhbibna / yuhbibna), not *tuhibbna
     V('ahabba', 'h-b-b', 'to love / like', ('love', 'loves', 'loved'), 'derived', 'IV',
-      pres_regular('hibb', U_PREFIX), past_doubled('ahbab', 'ahabb')),
+      {**pres_regular('hibb', U_PREFIX), 'antunna': 'tuhbibna', 'hunna': 'yuhbibna'},
+      past_doubled('ahbab', 'ahabb')),
     V('araada', 'r-w-d', 'to want', ('want', 'wants', 'wanted'), 'derived', 'IV',
       pres_hollow('riid', 'rid', U_PREFIX), past_hollow('araad', 'arad')),
     V('ataa', '\'-t-w', 'to give', ('give', 'gives', 'gave'), 'derived', 'IV',

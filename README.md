@@ -12,6 +12,21 @@ layout and build setup as the Italian tutor, using Latin transcription (no Arabi
 | **Tenses** | Pronoun + `a- / ta- / ya- / na-` pattern chart, plus present / past / future cards with full tables for a regular, hollow, defective and derived verb. |
 | **Profile** | Daily streak, level, accuracy, recent sessions. |
 
+### Arabic audio
+
+Everything is *shown* in Latin transcription but *spoken* by an Arabic voice (`ar-SA`). Phone voices
+can't read Latin transcription as Arabic, so every flashcard word and every conjugated verb form also
+carries a hidden, fully-vowelled Arabic-script string (never displayed) that the voice reads.
+
+* **Flashcards** – **Listen** plays the Arabic word (verbs: past form, then the "I" form, e.g. *kataba, aktubu*).
+  Auto-play says the word when it appears (or when you flip it, in English-first mode).
+* **Conjugate** – speaker button says the verb before you answer and the correct form after; the correct
+  form also plays automatically once you check / reveal.
+* **Mute** – the "Auto-play on/off" button stops automatic playback; it is remembered between launches.
+  The Listen / speaker buttons always play when tapped.
+* Needs an Arabic voice on the phone: *Settings ▸ Accessibility ▸ Spoken Content ▸ Voices ▸ Arabic*
+  (the app tells you once if none is installed). Audio follows the iPhone silent switch.
+
 ### Transcription used everywhere
 
 Long vowels are doubled (`aa`, `ii`, `uu`); `'` is hamza / ayn; `kh sh dh th gh` digraphs; emphatic
@@ -36,11 +51,15 @@ Change it in `app.json` (`ios.bundleIdentifier`, `android.package`) if you want 
 The data file `lib/arabic-data.ts` is **generated** — don't edit it by hand.
 
 * `tools/vocab.txt` — flashcard words (`arabic | english | m/f | note | example | translation`)
+* `tools/script_ar.txt` — the hidden Arabic script for every word in `vocab.txt` (`latin | arabic`), used for audio
 * `tools/verb_examples.txt` — one example sentence per verb
-* `tools/verbs.py` — verb conjugation rules / the list of verbs
+* `tools/verbs.py` — verb conjugation rules / the list of verbs (Latin)
+* `tools/verbs_ar.py` — the same verbs in Arabic script (audio); `tools/arabic.py` checks it
 
 After changing any of them run `python3 tools/gen_data.py` from the project root. The generator
-fails loudly on duplicate words or a verb example that doesn't contain one of that verb's forms.
+fails loudly on duplicate words, a verb example that doesn't contain one of that verb's forms, a word with
+no Arabic script, or any Arabic that does not transliterate back to the Latin shown on screen (all 1,220
+verb forms and all 307 words are checked this way). A new word needs a line in both `vocab.txt` and `script_ar.txt`.
 
 ## Local development
 
@@ -52,8 +71,7 @@ npx expo start          # run (Expo Go / simulator)
 
 ## Known limitations
 
-* **No Arabic audio.** Phone text-to-speech voices read Latin transcription of Arabic badly, so the
-  flashcard speaker button plays the English meaning only. Real audio needs Arabic script (or
-  recordings) — a good follow-up once you want the alphabet.
+* Audio quality is whatever Arabic voice iOS has installed (a downloaded "Enhanced" voice sounds best).
+  Example sentences on the back of cards are not spoken — only words and verb forms.
 * Hamza/ayn are both written `'` (as in your notes).
 * Case endings are dropped on nouns (`kitaab`, not `kitaabun`); verbs keep the final `-u` like your notes.

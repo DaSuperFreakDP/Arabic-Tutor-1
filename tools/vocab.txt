@@ -21,7 +21,7 @@ madiina | city | f | pl. mudun | al-qaahira madiina kabiira. | Cairo is a big ci
 bahr | sea | m | pl. bihaar | adhhabu ilaa al-bahr fii as-sayf. | I go to the sea in summer.
 khubz | bread | m | | uhibbu al-khubz. | I like bread.
 shaari' | street | m | pl. shawaari' | ash-shaari' tawiil. | The street is long.
-musiiqaa | music | f | | astami'u ilaa al-musiiqaa kulla masaa'. | I listen to music every evening.
+muusiiqaa | music | f | | astami'u ilaa al-muusiiqaa kulla masaa'. | I listen to music every evening.
 shams | sun | f | pl. shumuus | ash-shams jamiila al-yawm. | The sun is beautiful today.
 qamar | moon | m | pl. aqmaar | al-qamar jamiil. | The moon is beautiful.
 ard | earth / land | f | pl. araadin | al-ard kabiira. | The earth is big.
@@ -51,7 +51,7 @@ tayr | bird | m | pl. tuyuur | at-tayr jamiil. | The bird is beautiful.
 samak | fish | m | | uhibbu as-samak. | I like fish.
 tuffaaha | apple | f | pl. tuffaah | aakulu tuffaaha. | I eat an apple.
 mawza | banana | f | pl. mawz | aakulu mawza kulla sabaah. | I eat a banana every morning.
-burtuqaal | orange (fruit) | m | | al-burtuqaal halw. | The orange is sweet.
+burtuqaal | orange (fruit) | m | | al-burtuqaal hulw. | The orange is sweet.
 jubn | cheese | m | | uhibbu al-jubn. | I like cheese.
 haliib | milk | m | | ashrabu al-haliib fii as-sabaah. | I drink milk in the morning.
 zubda | butter | f | | uhibbu az-zubda. | I like butter.
@@ -189,7 +189,7 @@ akhdar | green | | f. khadraa' | ash-shajara khadraa'. | The tree is green.
 bunnii | brown | | f. bunniyya | al-hidhaa' bunnii. | The shoe is brown.
 ladhiidh | delicious | | f. ladhiidha | hadha as-samak ladhiidh. | This fish is delicious.
 murr | bitter | | f. murra | al-qahwa murra. | The coffee is bitter.
-halw | sweet / pretty | | f. hulwa | ash-shaay halw. | The tea is sweet.
+hulw | sweet / pretty | | f. hulwa | ash-shaay hulw. | The tea is sweet.
 maalih | salty | | f. maaliha | ash-shurba maaliha. | The soup is salty.
 muhimm | important | | f. muhimma | hadha ad-dars muhimm. | This lesson is important.
 mumkin | possible | | f. mumkina | hal hadha mumkin? | Is this possible?
@@ -224,12 +224,12 @@ al-aan | now | | | al-aan ana hunaa. | Now I am here.
 hunaa | here | | | ana hunaa. | I am here.
 hunaak | there | | | baytii hunaak. | My house is there.
 sarii'an | quickly | | | amshii sarii'an. | I walk quickly.
-bibutu' | slowly | | | amshii bibutu'. | I walk slowly.
+bibut' | slowly | | | amshii bibut'. | I walk slowly.
 bisuhuula | easily | | | afhamu bisuhuula. | I understand easily.
 ma'an | together | | | nadhhabu ma'an. | We go together.
 faqat | only | | | 'indii kitaab waahid faqat. | I have only one book.
 aydan | also | | | ana aydan sa'iid. | I am also happy.
-tabii'an | of course | | | tabii'an, ajii'u ghadan. | Of course, I will come tomorrow.
+tab'an | of course | | | tab'an, ajii'u ghadan. | Of course, I will come tomorrow.
 mubakkiran | early | | | aquumu mubakkiran. | I get up early.
 muta'akhkhiran | late | | | wasaltu muta'akhkhiran. | I arrived late.
 qariiban | soon | | | sa-adhhabu qariiban. | I will go soon.
@@ -276,7 +276,7 @@ tilka | that (f) | | | tilka madiina jamiila. | That is a beautiful city.
 kull | every / all | | | adhhabu kull yawm. | I go every day.
 ba'da | after | | | ba'da al-'amal. | After work.
 qabla | before | | | qabla al-ghadaa'. | Before lunch.
-bidoon | without | | | shaay bidoon haliib. | Tea without milk.
+biduun | without | | | shaay biduun haliib. | Tea without milk.
 'indii | I have (lit. at me) | | | 'indii sayyaara. | I have a car.
 ladayya | I have (formal) | | | ladayya waqt. | I have time.
 marhaban | hello | | | marhaban! kayfa haaluka? | Hello! How are you?
@@ -296,7 +296,7 @@ al-hamdu lillaah | thank God | | | kayfa haaluka? al-hamdu lillaah. | How are yo
 in shaa'a llaah | God willing | | | sa-adhhabu ghadan in shaa'a llaah. | I will go tomorrow, God willing.
 ma ismuka | what is your name? (to a man) | | | ma ismuka? ismii ahmad. | What is your name? My name is Ahmad.
 laa afham | I don't understand | | | laa afham hadhihi al-kalima. | I don't understand this word.
-hal tatakallamu al-inkliiziyya | do you speak English? | | | na'am, atakallamu qaliilan. | Yes, I speak a little.
+hal tatakallamu al-inkiliiziyya | do you speak English? | | | na'am, atakallamu qaliilan. | Yes, I speak a little.
 waahid | one | | | 'indii kitaab waahid. | I have one book.
 ithnaan | two | | | ithnaan min asdiqaa'ii hunaa. | Two of my friends are here.
 thalaatha | three | | | 'indii thalaatha kutub. | I have three books.

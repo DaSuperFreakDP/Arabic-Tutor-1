@@ -13,6 +13,8 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
 import verbs as V  # noqa: E402
+import verbs_ar as VA  # noqa: E402
+from arabic import matches, reverse  # noqa: E402
 
 PRON = V.PRON
 
@@ -55,11 +57,51 @@ def parse_verb_examples(path):
     return out
 
 
+def parse_script(path):
+    """latin headword | arabic | reads-as (optional)  ->  {latin: (arabic, reads_as)}"""
+    out = {}
+    for raw in open(path, encoding='utf-8'):
+        line = raw.strip()
+        if not line or line.startswith('#'):
+            continue
+        parts = [p.strip() for p in line.split('|')]
+        assert len(parts) in (2, 3), f'bad script line: {line}'
+        out[parts[0]] = (parts[1], parts[2] if len(parts) == 3 else None)
+    return out
+
+
 vocab = parse_vocab(os.path.join(HERE, 'vocab.txt'))
 vex = parse_verb_examples(os.path.join(HERE, 'verb_examples.txt'))
+script = parse_script(os.path.join(HERE, 'script_ar.txt'))
 
 # ---------------------------------------------------------------- checks ---
 errors = []
+
+# Arabic script (speech only) must back-transliterate to the Latin shown on screen.
+all_heads = [e['arabic'] for sec in vocab.values() for e in sec]
+for h in all_heads:
+    if h not in script:
+        errors.append(f"no Arabic script for headword '{h}' (tools/script_ar.txt)")
+        continue
+    ar, reads_as = script[h]
+    try:
+        ok = matches(ar, h, reads_as)
+    except ValueError as ex:
+        ok, ar = False, f'{ar} ({ex})'
+    if not ok:
+        errors.append(f"script for '{h}' reads as '{reverse(script[h][0])}': {ar}")
+for k in script:
+    if k not in all_heads:
+        errors.append(f"script entry for unknown headword '{k}'")
+for v in V.VERBS:
+    if v['id'] not in VA.AR:
+        errors.append(f"no Arabic forms for verb {v['id']}")
+        continue
+    for tense, forms in zip(('present', 'past'), VA.AR[v['id']]):
+        for p in PRON:
+            if not matches(forms[p], v[tense][p]):
+                errors.append(f"{v['id']} {tense} {p}: latin '{v[tense][p]}' vs arabic {forms[p]} "
+                              f"(reads '{reverse(forms[p])}')")
 
 ids = [v['id'] for v in V.VERBS]
 if len(ids) != len(set(ids)):
@@ -103,14 +145,16 @@ for typ in ('noun', 'verb', 'adjective', 'adverb', 'other'):
             note = f"past: {v['past3']} · I {v['en'][0]}: {v['present']['ana']}"
             if v['id'] == 'kaana':
                 note = f"past: {v['past3']} · I will be: {v['present']['ana']}"
+            pres_ar, past_ar = VA.AR[v['id']]
+            spoken = f"{past_ar['huwa']}، {pres_ar['ana']}"   # "kataba, aktubu" (same two forms as the note)
             add_card(dict(id=f'v{i}', arabic=v['stem'], english=en_inf, type='verb', gender='',
-                          note=note, example=ex[0], exampleTranslation=ex[1]))
+                          note=note, example=ex[0], exampleTranslation=ex[1], script=spoken))
         continue
     for i, e in enumerate(vocab[typ], 1):
         gender = {'m': 'masculine', 'f': 'feminine', '': ''}[e['gender']]
         add_card(dict(id=f'{prefix[typ]}{i}', arabic=e['arabic'], english=e['english'], type=typ,
                       gender=gender, note=e['note'], example=e['example'],
-                      exampleTranslation=e['exampleTranslation']))
+                      exampleTranslation=e['exampleTranslation'], script=script[e['arabic']][0]))
 
 if errors:
     print('DATA ERRORS:')
@@ -136,6 +180,8 @@ w("  gender?: 'masculine' | 'feminine';")
 w('  note?: string;')
 w('  example?: string;')
 w('  exampleTranslation?: string;')
+w('  /** Vocalised Arabic script, never shown: it is what the Arabic voice speaks. */')
+w('  script: string;')
 w('}')
 w('')
 w('export interface Conjugation {')
@@ -158,6 +204,8 @@ w("  type: 'regular' | 'irregular' | 'derived';")
 w('  form: string;')
 w('  isBe?: boolean;')
 w('  tenses: Record<TenseId, Conjugation>;')
+w('  /** Vocalised Arabic script of every form in `tenses` (speech only, never shown). */')
+w('  script: Record<TenseId, Conjugation>;')
 w('}')
 w('')
 w('export interface TenseInfo {')
@@ -177,7 +225,8 @@ for c in cards:
     if c['type'] != last:
         w(f"  // {c['type']}s")
         last = c['type']
-    fields = [f"id: {j(c['id'])}", f"arabic: {j(c['arabic'])}", f"english: {j(c['english'])}", f"type: {j(c['type'])}"]
+    fields = [f"id: {j(c['id'])}", f"arabic: {j(c['arabic'])}", f"english: {j(c['english'])}", f"type: {j(c['type'])}",
+              f"script: {j(c['script'])}"]
     if c['gender']:
         fields.append(f"gender: {j(c['gender'])}")
     if c['note']:
@@ -207,6 +256,13 @@ for v in V.VERBS:
     w(f"      present: {conj_obj(v['present'])},")
     w(f"      past: {conj_obj(v['past'])},")
     w(f"      future: {conj_obj(fut)},")
+    w('    },')
+    pres_ar, past_ar = VA.AR[v['id']]
+    fut_ar = {p: 'سَ' + f for p, f in pres_ar.items()}
+    w('    script: {')
+    w(f"      present: {conj_obj(pres_ar)},")
+    w(f"      past: {conj_obj(past_ar)},")
+    w(f"      future: {conj_obj(fut_ar)},")
     w('    },')
     w('  },')
 w('];')
