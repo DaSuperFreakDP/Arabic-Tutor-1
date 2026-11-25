@@ -23,14 +23,16 @@ function NativeTabLayout() {
         <Icon sf={{ default: "puzzlepiece", selected: "puzzlepiece.fill" }} />
         <Label>Build</Label>
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="tenses">
-        <Icon sf={{ default: "text.book.closed", selected: "text.book.closed.fill" }} />
-        <Label>Tenses</Label>
+      <NativeTabs.Trigger name="culture">
+        <Icon sf={{ default: "globe.europe.africa", selected: "globe.europe.africa.fill" }} />
+        <Label>Culture</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="profile">
         <Icon sf={{ default: "person.circle", selected: "person.circle.fill" }} />
         <Label>Profile</Label>
       </NativeTabs.Trigger>
+      {/* Tenses stays reachable from the "Tense charts" button on Conjugate (iOS shows only 5 tabs). */}
+      <NativeTabs.Trigger name="tenses" hidden />
     </NativeTabs>
   );
 }
@@ -101,14 +103,14 @@ function ClassicTabLayout() {
         }}
       />
       <Tabs.Screen
-        name="tenses"
+        name="culture"
         options={{
-          title: "Tenses",
+          title: "Culture",
           tabBarIcon: ({ color, size }) =>
             isIOS ? (
-              <SymbolView name="text.book.closed" tintColor={color} size={size} />
+              <SymbolView name="globe.europe.africa" tintColor={color} size={size} />
             ) : (
-              <Ionicons name="book-outline" size={size} color={color} />
+              <Ionicons name="earth-outline" size={size} color={color} />
             ),
         }}
       />
@@ -124,6 +126,8 @@ function ClassicTabLayout() {
             ),
         }}
       />
+      {/* Tenses is hidden from the bar (5-tab limit) and opened from the "Tense charts" button on Conjugate. */}
+      <Tabs.Screen name="tenses" options={{ href: null, title: "Tenses" }} />
     </Tabs>
   );
 }

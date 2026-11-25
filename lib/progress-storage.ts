@@ -18,6 +18,10 @@ const KEYS = {
   BUILDER_TOTAL: 'builder_total',
   BUILDER_STREAK: 'builder_streak',
   BUILDER_BEST: 'builder_best',
+  CULTURE_WHY_TEXT: 'culture_why_text',
+  CULTURE_WHY_REASONS: 'culture_why_reasons',
+  CULTURE_EXPLORED: 'culture_explored',
+  CULTURE_MISSIONS: 'culture_missions',
 };
 
 export async function getMasteredCards(): Promise<Set<string>> {
@@ -293,7 +297,9 @@ export async function setEnabledVerbs(verbIds: string[]): Promise<void> {
 
 export async function resetAllProgress(): Promise<void> {
   try {
-    await Promise.all(Object.values(KEYS).map(k => AsyncStorage.removeItem(k)));
+    // "My Why" (Culture tab) is personal, so resetting scores keeps it.
+    const keep = new Set<string>([KEYS.CULTURE_WHY_TEXT, KEYS.CULTURE_WHY_REASONS]);
+    await Promise.all(Object.values(KEYS).filter(k => !keep.has(k)).map(k => AsyncStorage.removeItem(k)));
   } catch {}
 }
 
@@ -363,4 +369,65 @@ export async function setConjugationMode(mode: 'arabic' | 'english'): Promise<vo
   try {
     await AsyncStorage.setItem(KEYS.CONJUGATION_MODE, mode);
   } catch {}
+}
+
+// ---------------------------------------------------------------------------------------------
+// Culture tab: "My Why", topics opened, weekly missions ticked
+// (deliberately NOT cleared by resetAllProgress: your reason for learning is personal)
+// ---------------------------------------------------------------------------------------------
+export interface WhyData {
+  text: string;
+  reasons: string[];
+}
+
+async function readList(key: string): Promise<string[]> {
+  try {
+    const raw = await AsyncStorage.getItem(key);
+    const v = raw ? JSON.parse(raw) : [];
+    return Array.isArray(v) ? v.filter((x) => typeof x === 'string') : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getWhy(): Promise<WhyData> {
+  try {
+    const text = (await AsyncStorage.getItem(KEYS.CULTURE_WHY_TEXT)) ?? '';
+    return { text, reasons: await readList(KEYS.CULTURE_WHY_REASONS) };
+  } catch {
+    return { text: '', reasons: [] };
+  }
+}
+
+export async function saveWhy(data: WhyData): Promise<void> {
+  try {
+    await Promise.all([
+      AsyncStorage.setItem(KEYS.CULTURE_WHY_TEXT, data.text),
+      AsyncStorage.setItem(KEYS.CULTURE_WHY_REASONS, JSON.stringify(data.reasons)),
+    ]);
+  } catch {}
+}
+
+export async function getCultureProgress(): Promise<{ explored: string[]; missions: string[] }> {
+  const [explored, missions] = await Promise.all([readList(KEYS.CULTURE_EXPLORED), readList(KEYS.CULTURE_MISSIONS)]);
+  return { explored, missions };
+}
+
+export async function markTopicExplored(id: string): Promise<string[]> {
+  const cur = await readList(KEYS.CULTURE_EXPLORED);
+  if (cur.includes(id)) return cur;
+  const next = [...cur, id];
+  try {
+    await AsyncStorage.setItem(KEYS.CULTURE_EXPLORED, JSON.stringify(next));
+  } catch {}
+  return next;
+}
+
+export async function toggleMission(id: string): Promise<string[]> {
+  const cur = await readList(KEYS.CULTURE_MISSIONS);
+  const next = cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id];
+  try {
+    await AsyncStorage.setItem(KEYS.CULTURE_MISSIONS, JSON.stringify(next));
+  } catch {}
+  return next;
 }

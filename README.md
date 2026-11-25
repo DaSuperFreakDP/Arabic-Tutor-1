@@ -1,6 +1,7 @@
 # Ultimate Arabic Tutor
 
-An Expo / React Native app for learning Arabic with flashcards, conjugation practice and a sentence-building game — same
+An Expo / React Native app for learning Arabic with flashcards, conjugation practice, a sentence-building game and a
+culture / motivation section — same
 layout and build setup as the Italian tutor, using Latin transcription (no Arabic script).
 
 ## What's inside
@@ -10,8 +11,30 @@ layout and build setup as the Italian tutor, using Latin transcription (no Arabi
 | **Flashcards** | 368 cards (142 nouns, 61 verbs, 59 adjectives, 27 adverbs, 79 pronouns / particles / phrases / numbers). Tap to flip, swipe right = learned, swipe left = still learning, undo, shuffle, matching game. Nouns show gender + plural, adjectives show the feminine form, verbs show the past form. |
 | **Conjugate** | Type the conjugated form for 61 common verbs in **present, past and future**, for all 10 persons (ana, anta, anti, huwa, hiya, nahnu, antum, antunna, hum, hunna). "Arabic prompt" mode (see `ktubu` + `anta`) or "English prompt" mode (see "you (m) write"). Filter by regular / irregular / derived (Forms II–X) or pick individual verbs. |
 | **Build** | Sentence-building game: arrange colour-coded word blocks into the correct Arabic word order for an English sentence. 822 sentences in 3 levels (see below). |
-| **Tenses** | Pronoun + `a- / ta- / ya- / na-` pattern chart, plus present / past / future cards with full tables for a regular, hollow, defective and derived verb. |
+| **Culture** | Why learn Arabic: your own "My Why", a daily fact, and seven topics on Italian / Sicilian links, Muslim Sicily, Maltese, the Mediterranean, regional dialects and lifestyles, where it is useful and how roots work (see below). |
+| **Tenses** | Pronoun + `a- / ta- / ya- / na-` pattern chart, plus present / past / future cards with full tables for a regular, hollow, defective and derived verb. Not in the tab bar (iOS shows at most 5 tabs): open it with the **Tense charts** button on Conjugate. |
 | **Profile** | Daily streak, level, accuracy, recent sessions. |
+
+### Culture (why this language is worth it)
+
+A separate tab for finding purpose in the language, not an exercise.
+
+* **My Why** – write your own reason and tick the reasons that fit. It is saved on the phone, shown at the top of the tab,
+  and *kept* when you reset your scores. Underneath: your days studied / cards learned / sentences built, and a short
+  daily encouragement line.
+* **Today's Spark** – one surprising fact a day (24 of them); **Another** shows the next. Facts with an Arabic word have a
+  play button.
+* **Seven topics** (tap to open; a tick shows the ones you have read):
+  *Arabic is already in your kitchen* (18 Arabic words behind Italian and Sicilian words and place names, filterable) ·
+  *When Palermo spoke Arabic* · *Maltese: Arabic in Italian clothes* · *The sea that connected everything* (Phoenicians,
+  Baghdad translators, al-Idrisi in Palermo, Fibonacci) · *One language, many homes* (standard Arabic vs dialects,
+  Maghreb / Egypt / Levant / Gulf / Iraq, "how are you?" in each) · *Where you'd actually use it* (travel, neighbours in
+  Italy, food, work, media, with figures from Italy's Ministry of Labour, plus six "try this week" missions you can tick
+  off) · *The secret that makes Arabic learnable* (roots: k-t-b and d-r-s).
+* **Audio** – every Arabic word on this tab plays the Arabic voice when you tap it. Nothing plays automatically, so the
+  Auto-play mute switch does not apply here.
+* **Sources** – "Where these facts come from" at the bottom links the pages used. Where historians disagree (for example how
+  formal Baghdad's House of Wisdom was, or why Caltanissetta is "castle of the women") the text says so.
 
 ### Build (sentence-building game)
 
@@ -82,6 +105,9 @@ The data file `lib/arabic-data.ts` is **generated** — don't edit it by hand.
 * `tools/vocab.txt` — flashcard words (`arabic | english | m/f | note | example | translation`)
 * `tools/script_ar.txt` — the hidden Arabic script for every word in `vocab.txt` (`latin | arabic`), used for audio
 * `tools/verb_examples.txt` — one example sentence per verb
+* `tools/gen_culture.py` — all Culture tab content (topics, sparks, word bridges, roots, missions, sources); every Arabic
+  word is checked against its Latin spelling. Run `python3 tools/gen_culture.py` to regenerate `lib/culture-data.ts`
+  (generated — don't edit by hand)
 * `tools/gen_phrases.py` — builds the Build game's word blocks and sentences (grammar frames + verified Arabic per block);
   run `python3 tools/gen_phrases.py` to regenerate `lib/phrases.ts` (also generated — don't edit by hand)
 * `tools/verbs.py` — verb conjugation rules / the list of verbs (Latin)

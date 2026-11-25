@@ -19,7 +19,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useFocusEffect } from "expo-router";
+import { useFocusEffect, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
 import Colors from "@/constants/colors";
@@ -140,6 +140,7 @@ const irregularVerbCount = VERBS.filter(v => v.type === 'irregular').length;
 const derivedVerbCount = VERBS.filter(v => v.type === 'derived').length;
 
 function SetupScreen({ onStart, stats }: { onStart: (tenses: TenseId[], count: CountOption, filters: VerbFilters, mode: 'arabic' | 'english') => void; stats: ConjugationStats }) {
+  const router = useRouter();
   const colorScheme = useColorScheme();
   const isDark = colorScheme === "dark";
   const theme = isDark ? Colors.dark : Colors.light;
@@ -194,9 +195,19 @@ function SetupScreen({ onStart, stats }: { onStart: (tenses: TenseId[], count: C
       contentContainerStyle={[styles.setupContent, { paddingTop: topPad + 16, paddingBottom: bottomPad + 24 }]}
       showsVerticalScrollIndicator={false}
     >
-      <View style={styles.setupHeader}>
-        <Text style={[styles.headerTitle, { color: theme.text }]}>Tasriif</Text>
-        <Text style={[styles.headerSub, { color: theme.textSecondary }]}>Set up your practice session</Text>
+      <View style={[styles.setupHeader, styles.setupHeaderRow]}>
+        <View style={{ flex: 1 }}>
+          <Text style={[styles.headerTitle, { color: theme.text }]}>Tasriif</Text>
+          <Text style={[styles.headerSub, { color: theme.textSecondary }]}>Set up your practice session</Text>
+        </View>
+        <TouchableOpacity
+          style={[styles.chartsBtn, { backgroundColor: theme.backgroundSecondary, borderColor: theme.border }]}
+          onPress={() => router.navigate("/tenses")}
+          accessibilityLabel="Open the tense charts"
+        >
+          <Ionicons name="book-outline" size={16} color={theme.tint} />
+          <Text style={[styles.chartsBtnText, { color: theme.tint }]}>Tense charts</Text>
+        </TouchableOpacity>
       </View>
 
       {stats.total > 0 && (
@@ -746,6 +757,9 @@ const styles = StyleSheet.create({
   content: { paddingHorizontal: 20, gap: 14 },
   resultsContent: { paddingHorizontal: 20, gap: 14 },
   setupHeader: { marginBottom: 4 },
+  setupHeaderRow: { flexDirection: "row", alignItems: "center", gap: 12 },
+  chartsBtn: { flexDirection: "row", alignItems: "center", gap: 6, paddingVertical: 9, paddingHorizontal: 12, borderRadius: 12, borderWidth: 1 },
+  chartsBtnText: { fontSize: 13, fontFamily: "Inter_600SemiBold" },
   headerTitle: { fontSize: 28, fontFamily: "Inter_700Bold", letterSpacing: -0.5 },
   headerSub: { fontSize: 13, fontFamily: "Inter_400Regular", marginTop: 2 },
   statsRow: { flexDirection: "row", gap: 10 },
